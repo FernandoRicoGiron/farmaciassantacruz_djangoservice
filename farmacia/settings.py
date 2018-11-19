@@ -67,18 +67,27 @@ WSGI_APPLICATION = 'farmacia.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
+import dj_database_url
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config()
+
+if len(DATABASES['default']) == 0:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'HOST': 'ec2-50-19-249-121.compute-1.amazonaws.com',
+            'NAME': 'd2luuh27kml0jm',
+            'USER': 'dhrvdoyojakukh',
+            'PORT': '5432',
+            'PASSWORD': '5451457470f87366e0d5efe34dbefdcb9006c106373f9720932d7b091ee4c273'
+    }
+}
+#DATABASES = {
     #'default': {
     #    'ENGINE': 'django.db.backends.sqlite3',
     #    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     #}
-}
-
-import dj_database_url
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
-# DATABASES['default']['CONN_MAX_AGE'] = 500
-
+#}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
