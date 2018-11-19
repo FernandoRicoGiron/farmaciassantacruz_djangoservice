@@ -68,11 +68,16 @@ WSGI_APPLICATION = 'farmacia.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    #'default': {
+    #    'ENGINE': 'django.db.backends.sqlite3',
+    #    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    #}
 }
+
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
+# DATABASES['default']['CONN_MAX_AGE'] = 500
 
 
 # Password validation
@@ -108,13 +113,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
+STATIC_URL = '/static/'
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'static').replace('\\', '/')
 
-STATIC_URL = '/static/'
 
 # MEDIA_ROOT = '/home/Rico/Unipymes_2/media'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
