@@ -1,6 +1,6 @@
 
 import os
-
+DATABASE_URL = 'postgres://dhrvdoyojakukh:5451457470f87366e0d5efe34dbefdcb9006c106373f9720932d7b091ee4c273@ec2-50-19-249-121.compute-1.amazonaws.com:5432/d2luuh27kml0jm'
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
