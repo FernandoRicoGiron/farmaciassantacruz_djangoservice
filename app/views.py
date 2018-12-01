@@ -6,8 +6,9 @@ from django.http import JsonResponse
 def categorias(request):
 	categorias = Categoria.objects.all()
 	data = {}
+
+	i = 1
 	for categoria in categorias:
-		i = 1
 		data[i] = {
 			"id":categoria.id,
 			"categoria":categoria.Categoria
@@ -18,8 +19,9 @@ def categorias(request):
 def productos(request):
 	productos = Producto.objects.all()
 	data = {}
+
+	i = 1
 	for producto in productos:
-		i = 1
 		data[i] = {
 			"id":producto.id,
 			"nombre":producto.Nombre,
@@ -34,8 +36,9 @@ def productosc(request):
 	categoria = Categoria.objects.get(id = request.GET.get("categoria"))
 	productos = Producto.objects.filter(Categoria = categoria)
 	data = {}
+
+	i = 1
 	for producto in productos:
-		i = 1
 		data[i] = {
 			"nombre":producto.Nombre,
 			"precio":producto.Precio,
@@ -49,8 +52,9 @@ def productosc(request):
 def promociones(request):
 	promociones = Promocion.objects.all()
 	data = {}
+
+	i = 1
 	for promocion in promociones:
-		i = 1
 		data[i] = {
 			"id":promocion.id,
 			"nombre":promocion.Nombre,
@@ -60,12 +64,15 @@ def promociones(request):
 			"imagen":promocion.Imagen.url
 		}
 		i += 1
+
 	return JsonResponse(data, safe=False)
 
 	
 def estados(request):
 	estados = Estado.objects.all()
 	data = {}
+
+	i = 1
 	for estado in estados:
 		i = 1
 		data[i] = {
@@ -79,8 +86,9 @@ def ciudades(request):
 	estado = Estado.objects.get(id = request.GET.get("estado"))
 	ciudades = Ciudad.objects.filter(Estado=estado)
 	data = {}
+
+	i = 1
 	for ciudad in ciudades:
-		i = 1
 		data[i] = {
 			"id":ciudad.id,
 			"nombre":ciudad.Nombre
@@ -92,8 +100,9 @@ def sucursales(request):
 	ciudad = Ciudad.objects.get(id=request.GET.get("ciudad"))
 	sucursales = Sucursal.objects.filter(Ciudad = ciudad)
 	data = {}
+
+	i = 1
 	for sucursal in sucursales:
-		i = 1
 		data[sucursal.id] = {
 			"id":sucursal.id,
 			"nombre":sucursal.Nombre,
