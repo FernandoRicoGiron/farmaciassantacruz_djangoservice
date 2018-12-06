@@ -21,7 +21,7 @@ class Producto(models.Model):
 	Nombre = models.CharField(max_length=100)
 	Precio = models.IntegerField(default=0)
 	Descripcion = models.TextField()
-	Imagen = models.ImageField(upload_to="Previo")
+	Imagen = models.CharField(max_length=150)
 	Categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
 
 	def __str__(self):
@@ -31,7 +31,7 @@ class Promocion(models.Model):
 	Nombre = models.CharField(max_length=100)
 	Precio = models.IntegerField(default=0)
 	Descripcion = models.TextField()
-	Imagen = models.ImageField(upload_to="Previo")
+	Imagen = models.CharField(max_length=150)
 	Categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
 
 	def __str__(self):
@@ -57,7 +57,7 @@ class Ciudad(models.Model):
 class Sucursal(models.Model):
 	Nombre = models.CharField(max_length=100)
 	Direccion = models.CharField(max_length=250)
-	Imagen = models.ImageField(upload_to="Previo")
+	Imagen = models.CharField(max_length=150)
 	Horario = models.CharField(max_length=100)
 	Telefono = models.CharField(max_length=100)
 	Ciudad = models.ForeignKey(Ciudad, on_delete=models.CASCADE)

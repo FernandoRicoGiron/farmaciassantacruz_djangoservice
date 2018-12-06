@@ -28,7 +28,7 @@ def productos(request):
 			"precio":producto.Precio,
 			"descripcion":producto.Descripcion,
 			"categoria":producto.Categoria.Categoria,
-			"imagen":producto.Imagen.url}
+			"imagen":producto.Imagen}
 		i += 1
 	return JsonResponse(data, safe=False)
 
@@ -61,7 +61,7 @@ def promociones(request):
 			"precio":promocion.Precio,
 			"descripcion":promocion.Descripcion,
 			"categoria":promocion.Categoria.Categoria,
-			"imagen":promocion.Imagen.url
+			"imagen":promocion.Imagen
 		}
 		i += 1
 
@@ -107,7 +107,7 @@ def sucursales(request):
 			"id":sucursal.id,
 			"nombre":sucursal.Nombre,
 			"direccion":sucursal.Direccion,
-			"imagen":sucursal.Imagen.url,
+			"imagen":sucursal.Imagen,
 			"horario":sucursal.Horario,
 			"telefono":sucursal.Telefono
 			}
