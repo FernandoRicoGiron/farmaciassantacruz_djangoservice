@@ -44,7 +44,7 @@ def productosc(request):
 			"precio":producto.Precio,
 			"descripcion":producto.Descripcion,
 			"categoria":producto.Categoria.Categoria,
-			"imagen":producto.Imagen.url
+			"imagen":producto.Imagen
 		}
 		i += 1
 	return JsonResponse(data, safe=False)
