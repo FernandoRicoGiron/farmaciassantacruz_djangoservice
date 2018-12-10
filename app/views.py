@@ -71,14 +71,12 @@ def promociones(request):
 def estados(request):
 	estados = Estado.objects.all()
 	data = {}
-
 	i = 1
 	for estado in estados:
-		i = 1
 		data[i] = {
 			"id":estado.id,
 			"nombre":estado.Nombre,
-			}
+		}
 		i += 1
 	return JsonResponse(data, safe=False)
 
@@ -92,7 +90,7 @@ def ciudades(request):
 		data[i] = {
 			"id":ciudad.id,
 			"nombre":ciudad.Nombre
-			}
+		}
 		i += 1
 	return JsonResponse(data, safe=False)
 
