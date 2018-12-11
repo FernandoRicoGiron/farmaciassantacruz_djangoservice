@@ -101,7 +101,7 @@ def sucursales(request):
 
 	i = 1
 	for sucursal in sucursales:
-		data[sucursal.id] = {
+		data[i] = {
 			"id":sucursal.id,
 			"nombre":sucursal.Nombre,
 			"direccion":sucursal.Direccion,
